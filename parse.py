@@ -1,13 +1,16 @@
 '''
 Parses email for name, date and cost from transaction text from email
-Name is identified by upper case, date by '/' and cost by '$'
+Name is identified by upper case and after 'at', date by '/' and cost by '$'
 '''
 def parse(s):
 	s = s.replace(',', ' ')
 	str = s.split()
-	name = cost = date = ' '
+	afterAt = False
+	name = cost = date = ''
 	for w in str:
-		if w.isupper():
+		if w == 'at':
+			afterAt = True
+		if w.isupper() and afterAt:
 			name += w + ' '
 		if w[0] == '$':
 			cost = w
@@ -16,6 +19,7 @@ def parse(s):
 	name = name[:-1]
 	return date, name, cost
 
-emailText = 'on 04/17/2019, at SUPER CHICKEN, a pending authorization or purchase in the amount of $10.38 was'
+emailFile = open('./test-transaction.txt', 'r')
+emailText = emailFile.read()
 date, name, cost = parse(emailText)
 print(f'Spent {cost} at {name} on {date}.')

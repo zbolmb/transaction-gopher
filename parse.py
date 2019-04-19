@@ -1,9 +1,7 @@
 def parse(s):
 	s = s.replace(",", " ")
 	str = s.split()
-	name = ""
-	cost = ""
-	date = ""
+	name = cost = date = ""
 	for w in str:
 		if w.isupper():
 			name += w + " "

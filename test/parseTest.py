@@ -1,4 +1,6 @@
-# from parse import parse_email
+import sys
+sys.path.append("..")  # imports upper level dir
+from src.parse import parse_email
 
 
 def test_capital_one():

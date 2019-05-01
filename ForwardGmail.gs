@@ -4,10 +4,8 @@ function myFunction() {
      var messages = threads[i].getMessages();
      for (var m = 0; m < messages.length; m++) {
        var msg = messages[m].getPlainBody();
-       var reg = /\$\d*.\d*/;
-       var transactionAmount = reg.exec(msg);
-       //Logger.log(msg);
-       Logger.log(transactionAmount)
+
+       Logger.log(msg);
 
      }
   }

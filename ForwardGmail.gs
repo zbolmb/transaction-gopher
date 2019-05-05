@@ -11,7 +11,6 @@ function myFunction() {
        });
      }
   }
-  
   Logger.log(messageDateJSON);
 }
 
